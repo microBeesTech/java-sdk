@@ -1,0 +1,30 @@
+<project>
+  <modelVersion>1.0.0</modelVersion>
+  <groupId>com.microbees</groupId>
+  <artifactId>microbeesSDK</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+ 
+  <name>microBees Java SDK</name>
+  <description></description>
+  <url>http://developers.microbees.com</url>
+ 
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+ 
+  <scm>
+    <url>http://svn.apache.org/viewvc/maven</url>
+  </scm>
+ 
+  <dependencies>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20140107</version>
+		</dependency>
+  </dependencies>
+</project>
