@@ -39,6 +39,9 @@ public class MicroBees {
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 		con.setRequestMethod("POST");
 		con.setRequestProperty("User-Agent", "Mozilla/5.0");
+		con.setRequestProperty("content-type", "application/json");
+		con.setRequestProperty("Accept", "application/json");
+		con.setRequestProperty("charset", "utf-8");
         con.setDoOutput(true);
         con.setDoInput(true);
 		if(token!=null)
