@@ -2,6 +2,8 @@ package com.microbees;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -9,8 +11,8 @@ import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
 
 
-public class microBees {
-	microBees(Boolean debug){
+public class MicroBees {
+	MicroBees(Boolean debug){
 		this.debug=debug;
 	}
 	private String token=null;
@@ -37,8 +39,15 @@ public class microBees {
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 		con.setRequestMethod("POST");
 		con.setRequestProperty("User-Agent", "Mozilla/5.0");
+        con.setDoOutput(true);
+        con.setDoInput(true);
 		if(token!=null)
 			con.setRequestProperty("Authorization", "Bearer "+token);
+		if(params!=null){
+			OutputStream os = con.getOutputStream();
+			os.write(params.toString().getBytes("UTF-8"));
+			os.close();
+		}
 		int responseCode = con.getResponseCode();
 		if(debug){
 			System.out.println("\nSending '"+"POST"+"' request to URL : " + url);
